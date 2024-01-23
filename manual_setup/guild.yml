@@ -1,0 +1,5 @@
+experiment:
+  description: Run the experiement setup once
+  main: run
+  flags-dest: config:config.yml
+  flags-import: all

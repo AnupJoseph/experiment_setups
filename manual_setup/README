@@ -1,0 +1,25 @@
+## Manual Experiment Setup
+
+Often I need to run a bunch of experiments manually where I tweak the values and code to my preference. Using an experiment tracker is overkill for this purpose(I think?). This is an attempt to build out a simple exp setup for such cases
+
+### Requirements
+`guild` is really the only requirements for this setup. So this should suffice `pip install guildai`
+
+
+### Workflow
+* To start with run `guild init`.
+  <details>
+    <summary>Note</summary>
+    Strictly put this is not necessary. I simply like to do this as it creates the `.guild` directory in the root folder of the project rather than wherever guild creates this
+    </details>
+* For a simple test a guild file look like this:
+  ```yml
+  experiment:
+  description: Run the experiement setup once
+  main: run # Replace with whatever your main file is
+  flags-dest: config:config.yml
+  flags-import: all
+  ```
+  Here `config.yml` can be a `json` file or `ini` file. Flags can also be specified by creating a `flags` section in this file or adding a `# Hyperparameters` comment in the `run.py` file. Guild accepts both
+* To run this setup use `guild run experiment`. Add a `-y` flag to run without confirmation
+* To view the experiments on the board run `guild view`
